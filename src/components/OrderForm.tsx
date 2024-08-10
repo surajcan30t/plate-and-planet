@@ -65,15 +65,13 @@ const OrderForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-      <FormField
+        <FormField
           control={form.control}
           name="count"
           render={({ field }) => (
             <FormItem className="space-y-3">
               <FormLabel>Number Of Meals</FormLabel>
-              <FormDescription>
-                Nmuber of adult meals.
-              </FormDescription>
+              <FormDescription>Nmuber of adult meals.</FormDescription>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
@@ -84,17 +82,13 @@ const OrderForm = () => {
                     <FormControl>
                       <RadioGroupItem value="1" />
                     </FormControl>
-                    <FormLabel className="font-normal">
-                      1
-                    </FormLabel>
+                    <FormLabel className="font-normal">1</FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
                       <RadioGroupItem value="2" />
                     </FormControl>
-                    <FormLabel className="font-normal">
-                      2
-                    </FormLabel>
+                    <FormLabel className="font-normal">2</FormLabel>
                   </FormItem>
                 </RadioGroup>
               </FormControl>
@@ -118,17 +112,13 @@ const OrderForm = () => {
                     <FormControl>
                       <RadioGroupItem value="lunch" />
                     </FormControl>
-                    <FormLabel className="font-normal">
-                      Lunch
-                    </FormLabel>
+                    <FormLabel className="font-normal">Lunch</FormLabel>
                   </FormItem>
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
                       <RadioGroupItem value="dinner" />
                     </FormControl>
-                    <FormLabel className="font-normal">
-                      Dinner
-                    </FormLabel>
+                    <FormLabel className="font-normal">Dinner</FormLabel>
                   </FormItem>
                 </RadioGroup>
               </FormControl>
@@ -165,8 +155,10 @@ const OrderForm = () => {
                               return checked
                                 ? field.onChange([...field.value, item.id])
                                 : field.onChange(
-                                  field.value.filter((value) => value !== item.id)
-                                );
+                                    field.value.filter(
+                                      (value) => value !== item.id,
+                                    ),
+                                  );
                             }}
                           />
                         </FormControl>
@@ -182,7 +174,7 @@ const OrderForm = () => {
             </FormItem>
           )}
         />
-        <div className='flex justify-center'>
+        <div className="flex justify-center">
           <Button type="submit">Schedule Meal</Button>
         </div>
       </form>

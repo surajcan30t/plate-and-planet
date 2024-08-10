@@ -7,13 +7,13 @@ import {
   SetStateAction,
   useEffect,
   useState,
-  ReactNode
+  ReactNode,
 } from 'react';
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
 interface GlobalContextProviderProps {
-  children : ReactNode;
+  children: ReactNode;
 }
 
 type GlobalContextType = {
@@ -23,9 +23,9 @@ type GlobalContextType = {
   admin: boolean;
 };
 
-
-
-export const GlobalContextProvider = ({children}: GlobalContextProviderProps) => {
+export const GlobalContextProvider = ({
+  children,
+}: GlobalContextProviderProps) => {
   const [authUser, setAuthUser] = useState(false);
   const [user, setUser] = useState(false);
   const [admin, setAdmin] = useState(false);
@@ -54,10 +54,12 @@ export const GlobalContextProvider = ({children}: GlobalContextProviderProps) =>
   );
 };
 
-export const useGlobalContext = ():GlobalContextType => {
+export const useGlobalContext = (): GlobalContextType => {
   const context = useContext(GlobalContext);
   if (context === undefined) {
-    throw new Error('useGlobalContext must be used within a GlobalContextProvider');
+    throw new Error(
+      'useGlobalContext must be used within a GlobalContextProvider',
+    );
   }
   return context;
-}
+};
